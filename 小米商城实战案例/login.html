@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="static/images/footlogo.png" >
+    <link rel="stylesheet" type="text/css" href="static/layui/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="static/css/login.css">
+    <link rel="stylesheet" type="text/css" href="static/font-awesome/css/font-awesome.min.css">
+    <script type="text/javascript" src="static/layui/layui.js"></script>
+    <title>小米商城-登录</title>
+</head>
+<body>
+       <!-- 顶部 -->
+       <div class="header">
+           <a href="./index.html"><img src="static/images/5.png" alt=""></a>
+       </div>
+
+       <!-- 内容 -->
+       <div class="content">
+           <div class="login-content">
+                <div class="content-form">
+                    <div class="content-form-main">
+                        <p id="reg-tags-0" onclick="changeReg(0, 'register-', 2)">账号登录</p>
+                        <span>|</span>
+                        <p id="reg-tags-1" onclick="changeReg(1, 'register-', 2)">扫码登录</p>                        
+                    </div>
+
+                    <div class="content-form-content" id="register-0">
+                        <form action="">
+                            <input type="text" placeholder="邮箱/手机号码/小米ID">
+                            <input type="password" placeholder="密码">
+                            <button>登录</button>
+                        </form>
+                        <h6><a href="" style="color:#ff6500;">手机短信登录/注册</a><span><a class="a-hover" href="">立即注册</a>&nbsp;|&nbsp;<a class="a-hover" href="">忘记密码？</a></span></h6>
+                        <div class="login-form-pic">
+                            <p>其它方式登录</p>
+                            <ul>
+                                <li class="pic1" style="margin-right:35px; background:#0288d1; "><i class="fa fa-qq"></i></li>
+                                <li class="pic1" style="margin-right:35px; background:#DA2F31;"><i class="fa fa-weibo"></i></li>
+                                <li class="pic1" style="margin-right:35px; background:#00A9EA;"><i class="fa fa-twitter-square"></i></li>
+                                <li class="pic4" style="background:#00D33C;"><i class="fa fa-weixin"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-form-content0" style="display:none;" id="register-1">
+                        <img src="static/images/下载.png" alt="">
+                        <p>使用<span style="color:#ff6700;">&nbsp;&nbsp;小米商城APP&nbsp;&nbsp;</span>扫一扫</p>
+                        <p>小米手机可打开「设置」>「小米帐号」扫码登录</p>
+                    </div>
+                 </div>
+           </div>
+          
+
+       </div>
+
+
+       <!-- 底部 -->
+       <div class="footer">
+            <p style="margin-top: 60px;">简体<span>|</span>繁体<span>|</span>English<span>|</span> 常见问题<span>|</span> 隐私政策</p>
+            <p>小米公司版权所有-京ICP备10046444-<img src="static/images/ghs.png"> 京公网安备11010802020134号-京ICP证110507号</p>
+       </div>
+       
+
+       <script type="text/javascript">
+           function changeReg(divId, divName, Count){
+                for(var i=0; i<Count; i++){
+                    document.getElementById(divName+i).style.display='none';
+                }
+                
+                document.getElementById(divName+divId).style.display='block';
+                // console.log( document.getElementById('register-1').style.display)
+                if(divId==0){
+                    document.getElementById('reg-tags-0').style.color='#ff6700';
+                    document.getElementById('reg-tags-1').style.color="#757575";
+                } 
+                if(divId==1){
+                    document.getElementById('reg-tags-1').style.color='#ff6700';
+                    document.getElementById('reg-tags-0').style.color="#757575";
+                } 
+           }
+       </script>
+</body>
+</html>
+
+<!-- https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/553c5e503fc83138c76bd7c17c1434db.jpeg -->
