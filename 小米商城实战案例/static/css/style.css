@@ -28,7 +28,7 @@ a{text-decoration: none; color:#ccc; cursor:pointer;}
     float:right;
 }
 .header-right li{
-    float:left; line-height: 40px;
+    float:left; line-height: 40px; font-size: 12px;
 }
 .header-right li span{
     margin:0px 5px; color:#6c6d69;
