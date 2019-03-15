@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过class属性选择元素</title>
+</head>
+<body>
+    <ul class="ul">
+        <li class="red">列表项01</li>
+        <li>列表项02</li>
+        <li class="blue">列表项03</li>
+        <li class="blue">列表项04</li>
+        <li class="yellow large">列表项05</li>
+    </ul>
+
+    <script>
+
+//CSS属性选择元素        
+        // let red = document.getElementsByClassName('red')[0];
+        // red.style.backgroundColor = "red";
+
+        // //该方法可以在父元素上调用
+        // document.getElementsByClassName('ul')[0]
+        //                   .getElementsByClassName('blue')[0]
+        //                   .style.backgroundColor = "blue";
+
+        // //支持多个class 属性值
+        // let large = document.getElementsByClassName('yellow large')[0];
+        // large.style.backgroundColor = "coral";
+        // large.style.fontSize = '1.5rem';
+        
+//CSS选择器获取元素
+
+        let lists = document.querySelectorAll('li');
+        console.log(lists); //返回节点列表元素
+
+        lists[0].style.backgroundColor = "coral";
+        lists[1].style.backgroundColor = "red";
+
+
+        //还可以获取class 或 id 名
+        let ul = document.querySelector('.ul'); //获取满足条件的第一个元素
+        ul.style.color = "yellow";
+        
+        let li = ul.querySelectorAll('.blue');
+        for(let i=0; i<li.length; i++){
+            li[i].style.backgroundColor = "lightblue";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用标签名和name属性选择的快捷方式</title>
+</head>
+<body>
+    <img src="inc/1.jpg" alt="" name=pic>
+    <form action="" name="register">
+        <input type="text" placeholder="用户名">
+        <input type="password" placeholder="密码不少于8位">        
+        <button>提交</button>
+    </form>
+    <p><a href="www.php.cn" name="php">php中文网</a></p>
+
+    <script>        
+        //根据name标签名和name 属性选择元素的快捷方式： 仅适用于极少的几个，这是历史原因造成的
+        
+        //images： 所有的 <img> 元素
+        document.images[0].style.width = "400px";
+        document.images['pic'].style.width = "200px";
+        document.images.pic.style.width = "300px";
+        document.images.item(0).style.width = "100px";
+
+        //forms：所有的 <forms> 元素、表单、数组
+        document.forms[0].style.backgroundColor = "yellow";            //标签索引
+        document.forms.item(0).style.backgroundColor = "red";
+        document.forms['register'].style.backgroundColor = "green";    //name 属性
+        document.forms.register.style.backgroundColor = "lightgreen";  //将name视为元素对象的属性进行访问
+
+        document.links[0].style.color = "red";
+        document.links.item(0).style.backgroundColor = "yellow";
+        document.links['php'].style.color = "black";
+        document.links.php.style.backgroundColor = "red";
+
+        document.body.style.backgroundColor = "#ff6700";
+        
+
+        let style = document.createElement('style');
+        document.head.appendChild(style);
+        
+
+        //documentElement: <html> 元素,总有定义，同样一个页面只有一个
+        console.log(document.documentElement);
+
+        //doctype: 文档类型，同样也只有一个
+        console.log(document.doctype);
+
+
+
+    </script>
+</body>
+</html>

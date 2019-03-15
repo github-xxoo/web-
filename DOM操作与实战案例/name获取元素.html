@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>根据name属性获取元素</title>
+</head>
+<body>
+    <!-- 拥有name属性的元素 常见的有： 表单，以及表单中的元素， 图像以及内联框架 -->
+    <!-- form, input, img, iframe -->
+    <form action="" name="login">
+        <input type="text" name="username">
+        <input type="password" name="password">
+        <button name="button">提交</button>
+    </form>
+
+    <script>
+        // getElementsByName() 返回的是一个 NodelList 节点列表， 不只是一个元素
+        let login = document.getElementsByName('username')[0];
+        
+        console.log(document.getElementsByName('username'));
+        //输出结果：NodeList(1)
+        
+        login.style.backgroundColor = "coral";
+
+        document.login.style.backgroundColor = "red";
+        
+        console.log(document.login);
+        //输出结果：整个form元素
+
+    </script>
+</body>
+</html>

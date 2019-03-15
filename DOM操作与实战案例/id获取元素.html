@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+</head>
+<body>
+    <ul id="lists">
+        <li id="item1">列表项01</li>
+        <li>列表项02</li>
+        <li id="item2">列表项03</li>
+        <li>列表项04</li>
+        <li id="item3">列表项05</li>
+    </ul>
+    
+    <script>
+        //使用id属性获取元素
+        let item1 = document.getElementById('item1');
+        let item2 = document.getElementById('item2');
+        let imte3 = document.getElementById('item3');
+
+        item1.style.backgroundColor = 'yellow';
+        item2.style.backgroundColor = "yellow";
+        item3.style.backgroundColor = "yellow";
+
+        function getElements(){
+            let elements = {}; //创建一个空的map 映射
+            for(let i=0; i<arguments.length; i++){
+                let id=arguments[i];
+                let element = document.getElementById(id);
+                if(element == null){
+                    throw new Error("No element with id: " + id);
+                }
+
+                elements[id] = element;
+            }
+            return elements;
+        }
+
+        let elements = getElements('item1', 'item2', 'item3');
+        for(let key in elements){
+            elements[key].style.backgroundColor = "green";
+        }
+
+    </script>
+
+
+</body>
+</html>
