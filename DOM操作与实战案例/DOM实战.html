@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM实战：模拟智能在线客服系统</title>
+
+    <style type="text/css">
+        div:nth-child(1){
+            width: 450px;
+            height: 650px;
+            background: lightskyblue;
+            color:#333;
+            margin:30px auto;
+            box-shadow: 2px 2px 2px #808080;
+        }
+
+        h2{
+            text-align: center;
+            margin-bottom: -10px;
+        }
+
+        div:nth-child(2){
+            width:400px;
+            height:500px;
+            background: #efefef;
+            border: 4px double green;
+            margin: 20px auto 10px;
+        }
+
+        ul{
+            list-style:none;
+            padding:15px;
+            line-height: 2em;
+
+        }
+
+        table{
+            width:90%;
+            height:80px;
+            margin:0 auto;
+        }
+
+        textarea{
+            width:280px;
+            height:56px;
+            overflow: hidden;
+            border:none;
+            resize:none;
+            padding:2px;
+            background-color: lightyellow;            
+        }
+
+        button{
+            width:80px;
+            height:59px;
+            line-height: 60px;
+            background-color:seagreen;
+            border:none;
+            color:white;
+        }
+
+        button:hover{
+            cursor:pointer;
+            background-color:orange;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>在线客服</h2>
+        <div contenteditable="true">
+            <ul>
+                <li></li>
+            </ul>
+        </div>
+
+        <table>
+            <tr>
+                <td align="right"><textarea name="text" id="" cols="30" rows="5"></textarea></td>
+                <td align="right"><button type="button">发送</button></td>
+            </tr>
+        </table>
+    </div>
+    
+
+    <script>
+        //获取到页面中的按钮,文本域,对话内容区
+        let btn = document.getElementsByTagName('button')[0];
+        let text = document.getElementsByName('text')[0];
+        let list = document.getElementsByTagName('ul')[0];
+        let sum = 0;
+
+        //添加按钮点击事件,获取用户数据并推送到对话窗口中
+        btn.onclick = function(){
+            // alert(text.value);
+            if(text.value.length === 0){
+                alert('不能发送空内容，小辣椒');
+                return false;
+            }
+
+            let userComment = text.value;
+            text.value = "";
+
+            let userPic = '<img src="inc/peter.jpg" width="30px" style="border-radius:50%">';
+
+            let li = document.createElement('li');
+            li.innerHTML =  userPic + " " + userComment;
+            list.appendChild(li);
+
+            sum++;
+
+            setTimeout(function(){
+                let info = [
+                    '真烦人,有话快说,别耽误我玩抖音',
+                    '除了退货,退款,咱们什么都可以聊',
+                    '说啥,本姑娘怎么听不懂呢?再说一遍',
+                    '在我方便的时候再回复你吧~~',
+                    '投诉我的人多了,你算老几~~~'
+                ];
+
+                //Math.random() 函数返回一个浮点,  伪随机数在范围[0，1)
+                let kefuTemp ='<span style="color:red;">' + info[Math.floor(Math.random()*5)] + '</span>';
+
+                let li = document.createElement('li');
+                let kefuPic = '<img src="inc/zly.jpg" width="30px" style="border-radius:50%">';
+                li.innerHTML = kefuPic + " " + kefuTemp;
+                list.appendChild(li);
+                sum++;
+            }, 1000);
+
+            if(sum>10){
+                list.innerHTML = "";
+                sum = 0;
+            }
+        }
+    </script>
+</body>
+</html>

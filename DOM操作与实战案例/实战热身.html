@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>机器人</title>
+</head>
+<body>
+    <input type="text" name="info">
+    <button>提交</button>
+    <ul></ul>
+
+    <script>
+        let info = document.getElementsByName('info')[0];
+        let bnt = document.getElementsByTagName('button')[0];
+        let ul = document.getElementsByTagName('ul')[0];
+        console.log(info.innerHTML);
+
+        bnt.onclick = function(){
+            let li = document.createElement('li');
+            li.innerText = info.value;           
+            ul.appendChild(li);
+            info.value = "";
+        }
+    </script>
+</body>
+</html>
