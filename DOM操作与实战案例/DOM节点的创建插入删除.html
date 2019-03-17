@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //创建节点
+        // 1.创建新元素
+        let ul = document.createElement('ul');
+        // 2.向元素中添加内容
+        ul.innerHTML = '<li>我是列表项</li>';
+        // 3.将新元素添加到页面中，本例是添加到<body>中
+        document.body.appendChild(ul);
+
+
+        //再创建一个列表项
+        let li1 = document.createElement('li');
+        li1.innerHTML = "列表项2";
+        ul.appendChild(li1);
+
+
+        //在某个节点前插入  insertBefore
+        let li2 = document.createElement('li');
+        li2.innerHTML = '<span style="color:red;">新加入的节点</span>';
+        ul.insertBefore(li2, li1);
+
+        //删除节点 removeChild
+        ul.removeChild(li2);
+
+        //替换节点 replaceChild(li2, li1) li2替换li1
+        ul.replaceChild(li2, li1);
+
+    </script>
+</body>
+</html>

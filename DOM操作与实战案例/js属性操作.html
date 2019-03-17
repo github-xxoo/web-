@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js对html元素的属性操作</title>
+</head>
+<body>
+    <!-- html元素属性主要分为两类： 1.标签自带的原生属性， 2.用户自定义的属性 -->
+    <img src="inc/1.jpg" alt="" width="320px" >
+    <h3 id="header" class="hello" style="color:red;" title="当幸福来敲门" index="php.cn">《当幸福来敲门》别走，幸福终究会来</h3>
+
+    <script>
+        
+        //html标签的原生属性,可以看作是元素对象的属性,进行读写
+        let img = document.getElementsByTagName('img')[0];
+        console.log(img);
+        img.width = 100;
+        img.src = 'inc/2.jpg';
+
+        // class 属性,因为class 与js 中的关键字冲突,需要重新定义,使用className表示
+        let h3 = document.getElementsByTagName('h3')[0];
+        console.log(h3.className);
+        // style属性被解析成一个对象,而不是传统的字符串,style中的每个选择符就是属性
+        h3.style.color = "green";
+
+
+        // 非标准的元素属性,可以用 setAttribute(),getAttribute()进行读写
+        // 在进行读写之前,先进行判断
+        if(h3.hasAttribute('index')){
+            console.log(h3.getAttribute('index'));
+
+            h3.setAttribute('index','php中文网');
+            console.log(h3.getAttribute('index'));
+
+            h3.removeAttribute('index'); //移除属性
+            console.log(h3.getAttribute('index'));
+        }
+
+        // 以上的这4个处理非标准属性的方法也可以处理元素的标准属性
+        h3.setAttribute('style', 'color:blue; font-size:1.5rem');
+
+        // 以数组的方式访问元素的属性,实时更新,注意是只读,不能设置 attributes[i]
+        console.log(h3.attributes[0]);
+        console.log(h3.attributes['id']);
+        console.log(h3.attributes['style']);
+
+
+    </script>
+</body>
+</html>

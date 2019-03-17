@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文档树的遍历</title>
+</head>
+<body>
+    <ul>
+        <li>我是wjh01</li>
+        <li>我是wjh02</li>
+        <li>我是wjh03</li>
+        <li>我是wjh04</li>
+        <li>我是wjh05</li>
+    </ul>
+
+    <script>
+        //文档中所有内容都有节点
+        //每个节点有三个属性:
+        // 1.nodeType节点类型,常用的有: 1->元素, 3->文本, 9->文档
+        // 2.nodeName节点名称(标签名),仅元素节点有意义,其它节点返回null
+        // 3.nodeValue节点值(仅文本或注释节点有意义)
+
+        console.log(document.nodeType);
+        console.log(document.nodeName);
+        console.log(document.nodeValue);
+
+        //获取某父节点下的所有子节点: childNodes()
+        console.log(document.childNodes);
+        console.log(document.childNodes[1]);
+
+        console.log(document.childNodes[1].childNodes[1]);  //不会拿到body ，
+        //因为节点方法不会忽略页面的空白字符，例如回车换行等，都会加入到子节点中
+
+
+        //js提供了一套API,将文档树看成仅仅由元素组成的,忽略掉内部的文本和注释等节点
+        console.log(document.children[0]);
+        console.log(document.children[0].children[1]); // 获取body
+
+        let ul = document.children[0].children[1].children[0];
+
+        //第一个子元素  firstElementChild
+        ul.firstElementChild.style.backgroundColor = 'lightblue';
+        //最后一个子元素  lastElementChild
+        ul.lastElementChild.style.backgroundColor = "lightpink";
+
+        //计算子元素数量
+        console.log(ul.children.length);
+        console.log(ul.childElementCount);
+
+
+        // 获取ul中的第三个子元素
+        let li2 = ul.children[2];
+        li2.style.backgroundColor = 'yellow';
+        // 下一下兄弟元素  nextElementSibling
+        li2.nextElementSibling.style.backgroundColor = 'blue' ;
+        // 上一个兄弟元素  previousElementSibling
+        li2.previousElementSibling.style.backgroundColor = 'red';
+
+        //获取当前元素的父元素  parentElement js定义的接口
+        li2.parentElement.style.backgroundColor = "cyan";
+
+
+        //获取父节点时候,使用原始的节点方法也是可以的,因为父节点不可能是文本或注释节点
+        li2.parentNode.style.backgroundColor = 'red';
+    </script>
+</body>
+</html>
